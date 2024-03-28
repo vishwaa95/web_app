@@ -151,7 +151,10 @@ terminal_growth_rate = st.slider('Terminal growth rate: %', 0,8, step=1, value=5
 
 st.write(f'Stock Symbol: {ticker_input}')
 stock_pe, mak_cap, net_profit, eps, ope_pro, roce, df = stock(ticker_input)
-mak_cap = float(mak_cap.replace(',',''))
+if mak_cap is not None:
+    mak_cap = float(mak_cap.replace(',', ''))
+else:
+    mak_cap = 0.0
 net_profit = float(net_profit.replace(',', ''))
 eps = float(eps.replace(',',''))
 ope_pro = int(ope_pro.replace(',',''))
