@@ -128,10 +128,6 @@ def stock(ticker):
     except Exception as e:
         print(f"Error fetching stock P/E from request2: {e}")
     
-    
-    default_value = 0
-    return default_value, default_value, default_value, default_value, default_value, default_value, default_value
-
 
 
 
@@ -151,10 +147,7 @@ terminal_growth_rate = st.slider('Terminal growth rate: %', 0,8, step=1, value=5
 
 st.write(f'Stock Symbol: {ticker_input}')
 stock_pe, mak_cap, net_profit, eps, ope_pro, roce, df = stock(ticker_input)
-if mak_cap is not None:
-    mak_cap = float(mak_cap.replace(',', ''))
-else:
-    mak_cap = 0.0
+mak_cap = float(mak_cap.replace(',',''))
 net_profit = float(net_profit.replace(',', ''))
 eps = float(eps.replace(',',''))
 ope_pro = int(ope_pro.replace(',',''))
